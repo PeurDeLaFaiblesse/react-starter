@@ -11,8 +11,8 @@ module.exports = {
     },
     ecmaVersion: 'latest',
   },
-  plugins: ['import', 'prettier', /* 'react' ,*/ '@typescript-eslint'],
-  // extends: ['plugin:@web-bee-ru/next'],
+  plugins: ['import', 'prettier', 'react', '@typescript-eslint'],
+  extends: ['plugin:@web-bee-ru/next'],
   rules: {
     'react/react-in-jsx-scope': ['off'],
     '@typescript-eslint/no-var-requires': 'off',

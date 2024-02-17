@@ -1,5 +1,5 @@
-import {ResolveOptions} from "webpack";
+import { ResolveOptions } from 'webpack';
 
 export default (): ResolveOptions => ({
-    extensions: ['.tsx', '.ts', '.js'],
-})
+  extensions: ['.tsx', '.ts', '.js'],
+});
