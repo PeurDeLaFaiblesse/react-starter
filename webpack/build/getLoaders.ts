@@ -13,7 +13,12 @@ export default ({ isDev }: WebpackConfigOptions): RuleSetRule[] => {
     test: /\.svg$/i,
     issuer: /\.[jt]sx?$/,
     resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
-    use: ['@svgr/webpack'],
+    use: [{ loader: '@svgr/webpack', options: { icon: true } }],
+  };
+
+  const assetLoader = {
+    test: /\.(png|jpg|jpeg|gif)$/i,
+    type: 'asset/resource',
   };
 
   const cssLoader = {
@@ -39,5 +44,5 @@ export default ({ isDev }: WebpackConfigOptions): RuleSetRule[] => {
     use: 'ts-loader',
   };
 
-  return [svgUrl, svgrLoader, tsLoader, cssLoader];
+  return [svgUrl, svgrLoader, assetLoader, tsLoader, cssLoader];
 };
