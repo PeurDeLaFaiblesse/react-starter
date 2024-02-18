@@ -4,4 +4,5 @@ import type { WebpackConfigOptions } from './types';
 export default ({ port }: WebpackConfigOptions): Configuration => ({
   port,
   open: true,
+  historyApiFallback: true,
 });
