@@ -18,7 +18,7 @@ export default (options: WebpackConfigOptions): Configuration => {
     module: {
       rules: getLoaders(options),
     },
-    resolve: getResolvers(),
+    resolve: getResolvers(options),
     plugins: getPlugins(options),
     devtool: isDev ? 'inline-source-map' : undefined,
     devServer: isDev ? getDevServer(options) : undefined,
