@@ -4,6 +4,7 @@ import type { WebpackConfigOptions } from './types';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
 export default ({ paths: { html }, isDev }: WebpackConfigOptions): WebpackPluginInstance[] => {
   const plugins: WebpackPluginInstance[] = [
@@ -12,7 +13,7 @@ export default ({ paths: { html }, isDev }: WebpackConfigOptions): WebpackPlugin
   ];
 
   if (isDev) {
-    plugins.push(new ProgressPlugin());
+    plugins.push(...[new ProgressPlugin(), new ReactRefreshPlugin()]);
   } else {
     plugins.push(
       ...[
