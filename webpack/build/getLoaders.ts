@@ -1,7 +1,6 @@
 import { RuleSetRule } from 'webpack';
 import { WebpackConfigOptions } from './types';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import ReactRefreshTypeScript from 'react-refresh-typescript';
 
 export default ({ isDev }: WebpackConfigOptions): RuleSetRule[] => {
   const svgUrl = {
@@ -39,18 +38,38 @@ export default ({ isDev }: WebpackConfigOptions): RuleSetRule[] => {
     ],
   };
 
-  const tsLoader = {
+  // const tsLoader = {
+  //   test: /\.tsx?$/,
+  //   exclude: /node_modules/,
+  //   use: {
+  //     loader: 'ts-loader',
+  //     options: {
+  //       getCustomTransformers: () => ({
+  //         before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
+  //       }),
+  //     },
+  //   },
+  // };
+
+  const babelLoader = {
     test: /\.tsx?$/,
     exclude: /node_modules/,
     use: {
-      loader: 'ts-loader',
+      loader: 'babel-loader',
       options: {
-        getCustomTransformers: () => ({
-          before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
-        }),
+        presets: [
+          '@babel/preset-env',
+          [
+            '@babel/preset-react',
+            {
+              runtime: isDev ? 'automatic' : 'classic',
+            },
+          ],
+          '@babel/preset-typescript',
+        ],
       },
     },
   };
 
-  return [svgUrl, svgrLoader, assetLoader, tsLoader, cssLoader];
+  return [svgUrl, svgrLoader, assetLoader, babelLoader, cssLoader];
 };
