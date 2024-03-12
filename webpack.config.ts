@@ -9,6 +9,7 @@ export default (env: Environments) => {
     outputPath: path.resolve(__dirname, 'build'),
     html: path.resolve(__dirname, 'public', 'index.html'),
     src: path.resolve(__dirname, 'src'),
+    public: path.resolve(__dirname, 'public'),
   };
 
   return getWebpackConfig({

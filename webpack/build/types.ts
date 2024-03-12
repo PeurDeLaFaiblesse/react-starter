@@ -8,6 +8,7 @@ export interface BuildPaths {
   outputPath: string;
   html: string;
   src: string;
+  public: string;
 }
 
 export interface WebpackConfigOptions extends Environments {
