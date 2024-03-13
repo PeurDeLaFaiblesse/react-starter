@@ -3,11 +3,11 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import type { WebpackConfigOptions } from './types';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import path from 'path';
 import Dotenv from 'dotenv-webpack';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 export default ({ paths, isDev }: WebpackConfigOptions): WebpackPluginInstance[] => {
   const plugins: WebpackPluginInstance[] = [

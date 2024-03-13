@@ -44,6 +44,7 @@ export default ({ isDev }: WebpackConfigOptions): RuleSetRule[] => {
   //   use: {
   //     loader: 'ts-loader',
   //     options: {
+  //       transpileOnly: true,
   //       getCustomTransformers: () => ({
   //         before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
   //       }),
