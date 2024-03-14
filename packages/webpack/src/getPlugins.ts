@@ -11,7 +11,12 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 export default ({ paths, isDev }: WebpackConfigOptions): WebpackPluginInstance[] => {
   const plugins: WebpackPluginInstance[] = [
-    new HtmlWebpackPlugin({ template: paths.html, favicon: path.resolve(paths.public, 'favicon.ico') }),
+    new HtmlWebpackPlugin({
+      template: paths.html,
+      favicon: path.resolve(paths.public, 'favicon.ico'),
+      excludeChunks: ['admin', 'shop'],
+      publicPath: '/',
+    }),
     new ForkTsCheckerWebpackPlugin(),
     new Dotenv(),
   ];

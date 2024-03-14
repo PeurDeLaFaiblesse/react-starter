@@ -11,7 +11,8 @@
     "esModuleInterop": true,
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "resolveJsonModule": true
   },
   "ts-node": {
     "compilerOptions": {

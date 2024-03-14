@@ -7,14 +7,9 @@ import path from "path";
 import { container } from "webpack";
 import packageJson from "./package.json";
 
-interface HostEnvironments extends Environments {
-  adminRemoteURL?: string;
-  showRemoteURL?: string;
-}
-
-export default (env: HostEnvironments) => {
+export default (env: Environments) => {
   const mode = env.mode ?? "development";
-  const port = env.port ?? 3000;
+  const port = env.port ?? 3001;
   const paths: BuildPaths = {
     entry: path.resolve(__dirname, "src", "index.tsx"),
     outputPath: path.resolve(__dirname, "build"),
@@ -22,8 +17,6 @@ export default (env: HostEnvironments) => {
     src: path.resolve(__dirname, "src"),
     public: path.resolve(__dirname, "public"),
   };
-  const adminRemoteURL = env.adminRemoteURL ?? "http://localhost:3001";
-  const showRemoteURL = env.showRemoteURL ?? "http://localhost:3002";
 
   const config = getWebpackConfig({
     port,
@@ -34,11 +27,10 @@ export default (env: HostEnvironments) => {
 
   config.plugins.push(
     new container.ModuleFederationPlugin({
-      name: "host",
+      name: "admin",
       filename: "remoteEntry.js",
-      remotes: {
-        admin: `admin@${adminRemoteURL}/remoteEntry.js`,
-        shop: `shop@${showRemoteURL}/remoteEntry.js`,
+      exposes: {
+        "./routes": "./src/router/index.tsx",
       },
       shared: {
         ...packageJson.dependencies,
