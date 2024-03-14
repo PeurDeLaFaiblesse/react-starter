@@ -1,8 +1,16 @@
 {
   "name": "webpack-module-federation",
   "version": "1.0.0",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build:dev": "turbo run build:dev",
+    "check-type": "turbo run check-type"
+  },
   "workspaces": [
     "packages/*",
     "services/*"
-  ]
+  ],
+  "devDependencies": {
+    "turbo": "^1.12.5"
+  }
 }

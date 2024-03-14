@@ -2,7 +2,7 @@
   "name": "shop",
   "version": "1.0.0",
   "scripts": {
-    "start": "webpack serve --env port=3002 mode=development",
+    "dev": "webpack serve --env port=3002 mode=development",
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production",
     "check-type": "tsc"
