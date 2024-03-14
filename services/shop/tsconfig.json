@@ -1,22 +1,9 @@
 {
+  "extends": ["../../tsconfig.base.json"],
   "compilerOptions": {
-    "noEmit": true,
-    "noImplicitAny": true,
-    "module": "ESNext",
-    "target": "es5",
-    "jsx": "react-jsx",
-    "allowJs": true,
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
     "paths": {
       "@/*": ["./src/*"]
     },
     "resolveJsonModule": true
   },
-  "ts-node": {
-    "compilerOptions": {
-      "module": "CommonJS"
-    }
-  }
 }
