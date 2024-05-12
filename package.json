@@ -1,5 +1,5 @@
 {
-  "name": "webpack-module-federation",
+  "name": "react-starter",
   "version": "1.0.0",
   "scripts": {
     "dev": "turbo run dev",
