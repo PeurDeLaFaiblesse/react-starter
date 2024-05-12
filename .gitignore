@@ -1,3 +1,9 @@
 /node_modules
 .idea
 .turbo
+
+# local env files
+config.prod.yaml
+config.yaml
+.env.prod
+.env

@@ -1,0 +1,20 @@
+http:
+  host: 'localhost'
+  port: 8000
+  usePods: true
+
+redis:
+  # 1 hour
+  ttl: 3600
+  url: redis://redis:6379/
+  password: examplePassword
+
+database:
+  username: postgres
+  password: postgres
+  db_name: postgres
+  host: database
+  port: 5432
+
+ml:
+  url: http://0.0.0.0:8009/text-to-theme
